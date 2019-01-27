@@ -1,0 +1,17 @@
+/* Styles user_confirm_delete.html */
+
+
+/* form
+---------------------------------------------*/
+
+.container {
+    margin-top: 6em;
+}
+
+
+/* footer
+---------------------------------------------*/
+
+footer .back-top {
+    visibility: hidden;
+}

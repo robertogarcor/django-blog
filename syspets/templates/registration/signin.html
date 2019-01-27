@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Pets - Login {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'registration/css/signin.css' %}">{% endblock %}
+{% block content %}
+    <main role="main">
+        <div class="container-form">
+           <form class="form-signin" method="POST">{% csrf_token %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="invalid-feedback">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                 <h4 class="mb-3 font-weight-normal">Please sign in</h4>
+                 <label for="{{form.username.id_for_label}}" class="sr-only">{{form.username.label}}</label>
+                 {{form.username}}
+                 <label for="{{form.password.id_for_label}}" class="sr-only">{{form.password.label}}</label>
+                 {{form.password}}
+                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                 <hr>
+                 <a class="btn btn-sm btn-outline-secondary btn-block" href="{% url 'accounts:signup' %}" role="buttom">Create Account</a>
+            </form>
+        </div>
+    </main>
+{% endblock %}
+
+
+
+

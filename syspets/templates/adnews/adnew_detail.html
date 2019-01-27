@@ -1,0 +1,98 @@
+{% extends 'base/base_auth.html' %}
+{% block title %} Pets - Adnew Detail  {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'adnews/css/adnew_detail.css' %}">{% endblock %}
+{% block content %}
+<main role="main">
+      <section class="jumbotron text-center">
+        <div class="container mt-5">
+          <h1 class="jumbotron-heading">Adnew Detail</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <a href="{% url 'adnews:comment_add' adnew.id %}" class="btn btn-success my-2">New Comment</a>
+        </div>
+      </section>
+
+     <div class="container">
+         <div class="row align-items-start">
+
+           <div class="col-profile col-lg-5 align-self-start">
+               {% if adnew %}
+                   <div class="card">
+
+                       <div class="card-image">
+                           {% if adnew.image %}
+                               <img src="{{ adnew.image.url }}" alt="{{ adnew.image.name }}">
+                           {% else %}
+                               <img class="img-default img-opacity" src="{% static 'adnews/images/pet_icon.png' %}" alt="pet_icon">
+                           {% endif %}
+                       </div>
+
+                      <div class="card-body">
+                        <label class="card-surname"><strong>Title:</strong></label>
+                        <h5 class="card-username">{{ adnew.title }}</h5>
+                        <label class="card-surname"><strong>Description:</strong></label>
+                        <p class="card-text text-justify">{{ adnew.description }}></p>
+                        <p class="card-date text-muted">{{ adnew.created|date }}</p>
+                          {% if user.is_authenticated %}
+                             {% ifequal object.user.username user.username %}
+                                 <a href="{% url 'adnews:adnew_update_form' adnew.id %}" role="button" class="btn btn-sm btn-outline-info">Edit Adnew</a>
+                            {% endifequal %}
+                          {% endif %}
+                      </div>
+
+                   </div>
+               {% endif %}
+           </div>
+
+           <div class="col-comments col-lg-7 align-self-start">
+
+                <div class="comment-header">
+                  <div class="card card-comment flex-row">
+                      <div class="comment-img-profile col-1 align-self-start">
+                          <img class="header-image img-default img-opacity" src="{% static 'users/images/user_icon.png' %}" alt="user_icon">
+                      </div>
+
+                       <div class="comment-body col-11 d-flex flex-column align-self-start">
+                            <h6 class="comment-user text-muted">
+                                Add Comment...
+                                <hr>
+                            </h6>
+                       </div>
+                  </div>
+                </div>
+
+               {% for comment in adnew_comments %}
+
+                    <div class="comment">
+                        <div class="card card-comment flex-row">
+
+                            <div class="comment-img-profile col-1 align-self-start">
+                              {% if comment.user.image %}
+                                <img class="comment-image" src="{{ comment.user.image.url }}" alt="{{ comment.user.image.url }}">
+                              {% else %}
+                                <img class="comment-image img-default img-opacity" src="{% static 'users/images/user_icon.png' %}" alt="user_icon">
+                              {% endif %}
+                            </div>
+
+                            <div class="comment-body col-11 d-flex flex-column align-self-start">
+                              <h6 class="comment-user text-muted">
+                                  <strong>{{ comment.user }}</strong>
+                                  <span class="comment-date">| {{ comment.created|date }}</span>
+                                  {% if user.is_authenticated %}
+                                    {% ifequal comment.user.username user.username %}
+                                        <a class="icon-delete fa fa-trash-o text-muted" href="{% url 'adnews:comment_delete' comment.id %}" title="Delete" alt="icon_del"></a>
+                                        <a class="icon-edit fa fa-pencil-square-o text-muted" href="{% url 'adnews:comment_update_form' comment.id  %}" title="Edit" alt="icon_edit"></a>
+                                    {% endifequal %}
+                                  {% endif %}
+                              </h6>
+                              <p class="comment-text text-justify">{{ comment.description }}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                    {% endfor %}
+           </div>
+         </div>
+     </div>
+</main>
+{% endblock %}

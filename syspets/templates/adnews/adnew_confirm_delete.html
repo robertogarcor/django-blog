@@ -1,0 +1,19 @@
+{% extends 'base/base_auth.html' %}
+{% block title %} Pets - Adnew Delete  {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'adnews/css/adnew_delete.css' %}">{% endblock %}
+{% block content %}
+
+<main role="main">
+    <div class="container">
+        <form class="form-del" method="post">{% csrf_token %}
+            <p>Are you sure you want to delete adnew "{{ adnew }}"?</p>
+            <div class="btn-group">
+                <input class="btn btn-danger" type="submit" value="Confirm">
+                <a class="btn btn-secondary" href="{% url 'adnews:adnew_update_form' adnew.id %}" role="button">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

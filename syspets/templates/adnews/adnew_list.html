@@ -1,0 +1,105 @@
+{% extends 'base/base_auth.html' %}
+{% block title %} Pets - Adnew List {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'adnews/css/adnews_list.css' %}">{% endblock %}
+{% block content %}
+ <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container mt-5">
+              <h1 class="jumbotron-heading">News</h1>
+              <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+             <div class="icons-social-head">
+              <ul class="social">
+                <li><a class="fa fa-linkedin" href="https://linkedin.com" target="_blank" title="linkedin"></a></li>
+                <li><a class="fa fa-google" href="https://www.google.es" target="_blank" title="google+"></a></li>
+                <li><a class="fa fa-github" href="https://github.com/" target="_blank" title="github"></a></li>
+                <li><a class="fa fa-youtube" href="https://youtube.com" target="_blank" title="youtube"></a></li>
+              </ul>
+            </div>
+        </div>
+        <a href="{% url 'adnews:adnew_add' %}" class="btn btn-success my-2">New Adnew</a>
+      </section>
+
+      <div class="container">
+         {% if adnews_list %}
+           {% for adnew, comments in adnews_comments %}
+               <div class="row adnew align-items-start mb-2">
+                    <div class="col-md-12">
+                      <div class="card flex-md-row box-shadow">
+
+                          <div class="card-image col-md-4 align-self-start">
+                              {% if adnew.image %}
+                                <img src="{{ adnew.image.url }}" alt="{{ adnew.image.name }}">
+                              {% else %}
+                                <img class="img-default img-opacity" src="{% static 'adnews/images/pet_icon.png' %}" alt="pet_icon">
+                              {% endif %}
+                          </div>
+
+                          <div class="card-body d-flex flex-column align-self-start">
+                              <h3 class="mb-0">
+                                <a class="card-title text-dark" href="{% url 'adnews:adnew_detail' adnew.id %}">{{ adnew.title }}</a>
+                              </h3>
+                              <p class="card-date text-muted">{{ adnew.created|date }}</p>
+                              <p class="card-text">{{ adnew.description }}</p>
+                              <div class="btn-group">
+                                <a class="btn btn-sm btn-outline-secondary" href="{% url 'adnews:adnew_detail' adnew.id %}" role="button">View | {{ comments }} Comments</a>
+                                {% if user.is_authenticated %}
+                                    {% ifequal adnew.user.username user.username %}
+                                        <a class="btn btn-sm btn-outline-info" href="{% url 'adnews:adnew_update_form' adnew.id %}" role="button">Edit Adnew</a>
+                                    {% endifequal %}
+                                {% endif %}
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+           {% endfor %}
+      {% endif %}
+
+<!-- pagination -->
+     {% if is_paginated %}
+          <nav class="page-navigation">
+              <p class="data-paginator">< Page {{page_obj.number}} of {{page_obj.paginator.num_pages}} ></p>
+              <ul class="pagination justify-content-center">
+
+                  {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                  {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" >&laquo;</span>
+                    </li>
+                  {% endif %}
+
+                  {% for i in paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if page_obj.has_next %}
+                    <li class="page-item">
+                         <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                  {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo</span>
+                    </li>
+                  {% endif %}
+
+              </ul>
+          </nav>
+      {% endif %}
+    </div>
+ </main>
+
+{% endblock %}

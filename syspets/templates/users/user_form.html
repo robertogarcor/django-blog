@@ -1,0 +1,64 @@
+{% extends 'base/base_auth.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Pets - User Edit Form  {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'users/css/user_form.css' %}">{% endblock %}
+{% block content %}
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row form-header">
+                    <div class="header-title col-8 col-md-12 align-self-center">
+                        <h2 class="font-weight-normal">Profile Edit</h2>
+                        <a class="change-email" href="{% url 'accounts:email_change' %}">Change Email</a>
+                        <span>|</span>
+                        <a class="change-password" href="{% url 'accounts:password_change' %}">Change Password</a>
+                    </div>
+
+                    <div class="header-image col-4">
+                        {% if user.image %}
+                            <img class="img-title" src="{{ user.image.url }}" alt="{{ user.image.name }}">
+                        {% else %}
+                            <img class="img-title-default img-opacity" src="{% static 'users/images/user_icon.png' %}" alt="user_icon">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-boby">
+                    <form class="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.username|as_crispy_field }}
+                        {{ form.first_name|as_crispy_field }}
+                        {{ form.last_name|as_crispy_field }}
+                        {{ form.description|as_crispy_field }}
+                        {{ form.image|as_crispy_field }}
+                        <div class="btn-group save">
+                            <input class="btn btn-info" type="submit" value="Save">
+                            <!--<a class="btn btn-secondary" href="{% url 'users:user_detail' user.username %}">Cancel</a>-->
+                        </div>
+
+                        <div class="btn-group delete">
+                            <a class="btn btn-danger" href="{% url 'users:user_delete' user.id %}" role="button">Delete</a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="container-image col-md-6 align-self-center">
+                {% if user.image %}
+                    <img src="{{ user.image.url }}" alt="{{ user.image.name }}">
+                {% else %}
+                    <img class="img-opacity" src="{% static 'users/images/user_icon.png' %}" alt="user_icon">
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

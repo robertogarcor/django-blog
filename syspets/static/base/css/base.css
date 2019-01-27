@@ -1,0 +1,27 @@
+/** Styles base, base:auth.html  **/
+
+/* Base-auth - username
+--------------------------------------*/
+
+span.nav-username {
+   color: rgba(255,255,255,1);
+}
+
+a.nav-logout {
+    color: rgba(255,255,255,.5);
+}
+
+a.nav-logout:hover{
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+}
+
+
+/* footer
+-------------------------------------*/
+
+footer.container {
+   text-align: center;
+   margin-top: 2em;
+
+}

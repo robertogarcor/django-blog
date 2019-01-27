@@ -1,0 +1,61 @@
+{% extends 'base/base_auth.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Pets - Adnew Form  {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'adnews/css/adnew_form.css' %}">{% endblock %}
+{% block content %}
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row form-header">
+                    <div class="header-title col-8 col-md-12 align-self-center">
+                        {% if adnew.id %}
+                            <h2 class="font-weight-normal">Edit Adnew</h2>
+                        {% else %}
+                            <h2 class="font-weight-normal">New Adnew</h2>
+                        {% endif %}
+                    </div>
+
+                    <div class="header-image col-4">
+                        {% if adnew.image %}
+                            <img class="img-title" src="{{ adnew.image.url }}" alt="{{ adnew.image.name }}">
+                        {% else %}
+                            <img class="img-title-default img-opacity" src="{% static 'adnews/images/pet_icon.png' %}" alt="pet_icon">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-boby">
+                    <form class="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="btn-group save">
+                            <input class="btn btn-info" type="submit" value="Save">
+                            <!--<a class="btn btn-secondary" href="{% url 'users:user_detail' user.username %}">Cancel</a>-->
+                        </div>
+
+                        {% if adnew.id %}
+                            <div class="btn-group delete">
+                                <a class="btn btn-danger" href="{% url 'adnews:adnew_delete' adnew.id %}" role="button">Delete</a>
+                            </div>
+                        {% endif %}
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="container-image col-md-6 align-self-center">
+                {% if adnew.image %}
+                    <img src="{{ adnew.image.url }}" alt="{{ adnew.image.name }}">
+                {% else %}
+                    <img class="img-opacity" src="{% static 'adnews/images/pet_icon.png' %}" alt="pet_icon">
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

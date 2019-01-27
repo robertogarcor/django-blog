@@ -1,0 +1,104 @@
+/* Styles user_detail.html */
+
+/* Frofile user data
+*-------------------------------------*/
+
+.container {
+    margin-top: 3em;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+.card {
+    margin-bottom: 1.5em;
+}
+
+.card-date {
+    font-size: .8em;
+    margin-bottom: .5em;
+}
+
+.col-profile {
+    margin-bottom: 1.5em;
+}
+
+
+.card-image{
+    text-align: center;
+    padding: 1.5em;
+}
+
+
+.card-img-profile {
+    padding: 1.2em;
+
+}
+
+
+.card-image img,
+.card-img-profile img {
+    width: 100%;
+}
+
+
+/* image-default
+----------------------------------------*/
+
+.card-image .img-default {
+    width: 50%;
+}
+
+.img-opacity {
+    opacity: .5;
+}
+
+.col-profile {
+    text-align: center;
+}
+
+/* btns
+--------------------------------------------*/
+
+.btn-group {
+    margin-top: 1em;
+}
+
+/* pagination
+--------------------------------------------*/
+
+.page-navigation {
+    margin-top: 2em;
+}
+
+.data-paginator {
+    text-align: center;
+}
+
+
+
+/* Media Query > 960 px
+---------------------------------------------*/
+
+/*
+@media only screen and (max-width: 480px) {
+    .container-img-profile {
+        padding: 1em;
+}*/
+
+}
+
+/*
+@media only screen and (min-width: 960px) {
+
+    .col-profile {
+        width:100%
+    }
+
+     .col-adnews {
+       width:100%
+    }
+
+
+}*/

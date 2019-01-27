@@ -1,0 +1,99 @@
+/* Styles adnew_detail.html */
+
+
+.container {
+    margin-top: 3em;
+}
+
+/** Card Date Adnew
+----------------------------------------*/
+
+.card-body .card-date  {
+    text-align: right;
+    font-size: .8em;
+}
+
+.card-body .card-text {
+    text-align: justify;
+
+}
+
+/* profile adnew
+------------------------------------*/
+
+.col-profile {
+    margin-bottom: 1.5em;
+}
+
+
+/* Image
+----------------------------------*/
+
+.card-image {
+    padding: 1em;
+    text-align: center;
+}
+
+.card-image img {
+    width: 100%;
+}
+
+
+/* image-default
+----------------------------------------*/
+
+.card-image .img-default {
+    width: 50%;
+}
+
+.card-image .img-opacity {
+    opacity: .5;
+}
+
+
+/* Comments
+---------------------------------------------*/
+
+.comment-header {
+    margin-bottom: .5em;
+}
+
+.comment {
+    margin-bottom: .5em;
+}
+
+.card-comment {
+    border: none;
+}
+
+.comment-img-profile {
+    padding: 0;
+}
+
+.comment-img-profile img {
+    width: 80%;
+}
+
+.comment-body {
+    padding-top: .25em;
+    /*margin-left: 1em;*/
+}
+
+.comment-body .comment-user {
+    margin-bottom: .25em;
+}
+
+.comment-body .comment-date {
+    font-size: .7em;
+    margin-bottom: .5em;
+}
+
+.comment-body h6 a {
+    float: right;
+    padding-left: .5em;
+    font-size: .9em;
+    padding-top: .2em;
+}
+
+
+

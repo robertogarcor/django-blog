@@ -1,0 +1,44 @@
+{% extends 'base/base_auth.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Pets - User Change Email  {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'registration/css/email_change.css' %}">{% endblock %}
+{% block content %}
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row form-header">
+                    <div class="header-title col-8 col-md-12 align-self-center">
+                        <h2>Change Email</h2>
+                    </div>
+
+                    <div class="header-image col-4">
+                        <img class="img-title-default img-opacity" src="{% static 'registration/images/email_icon.png' %}" alt="email_icon">
+                    </div>
+                </div>
+
+                <div class="form-boby">
+                    <form class="" method="POST">{% csrf_token %}
+                        <h6 class="text-muted"><strong>Current email address</strong></h6>
+                        <p>{{ user.email }}</p>
+                        {{ form|crispy }}
+                        <div class="btn-group">
+                            <input class="btn btn-info email-change" type="submit" value="Change email">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="container-image col-md-6 align-self-center">
+                <img class="img-opacity" src="{% static 'registration/images/email_icon.png' %}" alt="email_icon">
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

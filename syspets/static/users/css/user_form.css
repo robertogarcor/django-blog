@@ -1,0 +1,83 @@
+/* Styles Edit user_form.html */
+
+.container {
+    margin-top: 6em;
+}
+
+.header-title {
+    margin-bottom: 1em;
+}
+
+.header-title h2 {
+    margin-bottom: 0;
+}
+
+.header-title a {
+    font-size: .75em;
+}
+
+.btn-group {
+    margin-top: 1em;
+}
+
+.btn-group.delete {
+    float: right;
+}
+
+input[type='file'] {
+    width: 100%;
+
+}
+
+/* Images
+-------------------------------------------*/
+
+.header-image {
+    text-align: right;
+}
+
+.header-image img {
+    /*padding: 1em;*/
+    width: 80%;
+}
+
+.container-image {
+    display: none;
+    text-align: center;
+}
+
+.container-image img {
+    padding: 2em;
+    width: 100%;
+}
+
+.img-opacity {
+    opacity: .5;
+}
+
+
+/* footer
+---------------------------------------------*/
+
+footer .back-top {
+    visibility: hidden;
+}
+
+
+/* Media Query > 786 px
+---------------------------------------------*/
+
+@media only screen and (min-width: 768px) {
+
+    .container .header-image img {
+        display: none;
+    }
+
+    .container-image {
+        display: block;
+    }
+
+}
+
+
+

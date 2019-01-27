@@ -1,0 +1,98 @@
+{% extends 'base/base.html' %}
+{% block title %} Pets {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'homepage/css/homepage.css' %}">{% endblock %}
+{% block header %}
+<header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="{% url 'homepage' %}" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>Rescue Pet</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+</header>
+{% endblock %}
+{% block content %}
+      <main role="main">
+        <section class="jumbotron text-center">
+          <div class="container">
+            {% if messages %}
+              {% for message in messages %}
+                {% if message.tags == 'info' %}
+                    <li class="{{ message.tags }} alert alert-info">{{ message }}</li>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            <h1 class="jumbotron-heading">Pets</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <div class="icons-social-head">
+              <ul class="social">
+                <li><a class="fa fa-linkedin" href="https://linkedin.com" target="_blank" title="linkedin"></a></li>
+                <li><a class="fa fa-google" href="https://www.google.es" target="_blank" title="google+"></a></li>
+                <li><a class="fa fa-github" href="https://github.com/" target="_blank" title="github"></a></li>
+                <li><a class="fa fa-youtube" href="https://youtube.com" target="_blank" title="youtube"></a></li>
+              </ul>
+            </div>
+            <p>
+              {% if not is_authenticated %}
+                 <a class="btn btn-primary my-2" href="{% url 'accounts:signin' %}">Sign In</a>
+              {% endif %}
+              <a class="btn btn-secondary my-2" href="{% url 'accounts:signup' %}">Sign Up</a>
+            </p>
+          </div>
+        </section>
+
+        <div class="album bg-light">
+          <div class="container">
+            <div class="row">
+            {% if adnews_list %}
+              {% for adnew in adnews_list %}
+                  <div class="col-md-4">
+                    <div class="card shadow-sm">
+                      {% if adnew.image_url %}
+                        <img class="card-img-top" src="{{ adnew.image.url }}" alt="{{ adnew.image.name }}">
+                      {% else %}
+                        <img class="img-default img-opacity" src="{% static 'adnews/images/pet_icon.png' %}" alt="pet_icon">
+                      {% endif %}
+                      <div class="card-body">
+                        <p class="card-title"><strong>{{ adnew.title }}</strong></p>
+                        <p class="card-text text-justify">{{ adnew.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-secondary" href="{% url 'accounts:signin' %}" role="button">View</a>
+                          </div>
+                          <span class="card-date text-muted">{{ adnew.created|date }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              {% endfor %}
+            {% endif %}
+             </div>
+          </div>
+        </div>
+      </main>
+{% endblock %}

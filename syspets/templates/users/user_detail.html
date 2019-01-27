@@ -1,0 +1,130 @@
+{% extends 'base/base_auth.html' %}
+{% block title %} Pets - Profile User {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'users/css/user_detail.css' %}">{% endblock %}
+{% block content %}
+
+ <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container mt-5">
+          <h1 class="jumbotron-heading">User News</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <a href="{% url 'adnews:adnew_add' %}" class="btn btn-success my-2">New Adnew</a>
+        </div>
+      </section>
+     <div class="container">
+
+         <div class="row align-items-start">
+           <div class="col-profile col-lg-3 align-self-start">
+               {% if user %}
+                   <div class="card">
+
+                       <div class="card-img-profile col-6 col-sm-6 col-md-5 col-lg-9 align-self-center">
+                           {% if user.image %}
+                                <img src="{{ user.image.url }}" alt="Photo Profile">
+                           {% else %}
+                                <img class="img-opacity" src="{% static 'users/images/user_icon.png' %}" alt="Photo Profile">
+                           {% endif %}
+                       </div>
+
+                        <div class="card-body col-lg-12">
+                            <h5 class="card-username"><strong>{{ user.username}}</strong></h5>
+                            <p class="card-surname">{{ user.first_name }} {{ user.last_name}}</p>
+                            <p class="card-text">{{ user.description }}</p>
+                            <a href="{% url 'users:user_update_form' user.username %}" role="button" class="btn btn-sm btn-outline-info">Edit Profile</a>
+                        </div>
+
+                    </div>
+               {% endif %}
+           </div>
+
+           <div class="col-adnews col-lg-9 align-self-start">
+               {% if adnews_user_comments %}
+                   {% for adnew, comments in adnews_user_comments %}
+                        <div class="adnew">
+
+                          <div class="card flex-md-row box-shadow">
+                            <div class="card-image col-md-5">
+                                {% if adnew.image_url %}
+                                    <img src="{{ adnew.image.url }}" alt="{{ adnew.image.name }}">
+                                {% else %}
+                                    <img class="img-default img-opacity" src="{% static 'adnews/images/pet_icon.png' %}" alt="pet_icon">
+                                {% endif %}
+                            </div>
+
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="{% url 'adnews:adnew_detail' adnew.id %}">{{ adnew.title }}</a>
+                                </h3>
+                                <p class="card-date text-muted">{{ adnew.created|date }}</p>
+                                <p class="card-text mb-auto">{{ adnew.description }}</p>
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'adnews:adnew_detail' adnew.id %}" role="button">View | {{ comments }} Comments</a>
+                                     {% if user.is_authenticated %}
+                                        {% ifequal adnew.user.username user.username %}
+                                            <a class="btn btn-sm btn-outline-info" href="{% url 'adnews:adnew_update_form' adnew.id %}" role="button" >Edit Adnew</a>
+                                        {% endifequal %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                 {% endfor %}
+               {% else %}
+                    <div class="not-adnews">
+                        <p>No have news.</p>
+                    </div>
+               {% endif %}
+         </div>
+     </div>
+
+     <!-- pagination -->
+     {% if page_obj %}
+          <nav class="page-navigation">
+              <p class="data-paginator">< Page {{ page_obj.number }} of {{page_obj.paginator.num_pages}} ></p>
+              <ul class="pagination justify-content-center">
+
+                  {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                  {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" >&laquo;</span>
+                    </li>
+                  {% endif %}
+
+                  {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if page_obj.has_next %}
+                    <li class="page-item">
+                         <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                  {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo</span>
+                    </li>
+                  {% endif %}
+
+              </ul>
+          </nav>
+      {% endif %}
+
+
+  </div>
+ </main>
+{% endblock %}
+
+

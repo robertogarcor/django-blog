@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta name="author" content="Roberto Garcia">
+        <title>{% block title %}{% endblock %}</title>
+        {% load static from staticfiles %}
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+        <!-- font-awesome 4.7.0 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'base/css/base.css' %}">
+        {% block styles %}{% endblock %}
+        {% block js %}{% endblock %}
+    </head>
+    <body>
+        <!-- HEAD -->
+        <header>
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" title="home" href="{% url 'adnews:adnew_list' %}">Pets</a>
+            <button class="navbar-toggler"
+                    type="button"
+                    title="menu"
+                    data-toggle="collapse"
+                    data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'adnews:adnew_list' %}">Home
+                      <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'users:user_detail' user.username %}">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <!--<a class="nav-link disabled" href="#">Disabled</a>-->
+                </li>
+              </ul>
+            {% if user.is_authenticated %}
+                <span class="nav-username">Hi! user, {{ user.username }} |
+                    <a class="nav-logout" href="{% url 'accounts:logout' %}">Logout</a>
+                </span>
+            {% endif %}
+            </div>
+          </nav>
+        </header>
+
+         <!-- CONTENT -->
+        {% block content %}  {% endblock %}
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="back-top"><a href="#">Back to top</a></p>
+            <p>&copy; 2019 Pets, By Roberto</p>
+        </footer>
+         <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

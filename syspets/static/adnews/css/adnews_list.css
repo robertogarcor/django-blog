@@ -1,0 +1,96 @@
+/* Styles adnews_list.html */
+
+.container {
+    margin-top: 3em;
+}
+
+.row.adnew {
+    margin-bottom: .5em;;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+.card {
+    margin-bottom: 1.5em;
+}
+
+.card-date {
+    font-size: .8em;
+    margin-bottom: .5em;
+}
+
+/* Images News
+----------------------------------*/
+
+.card-image  {
+    text-align: center;
+    padding: 1.5em;
+}
+
+.card-image  img {
+    width: 100%;
+}
+
+
+/* image-default
+----------------------------------------*/
+
+.card-image .img-default {
+    width: 50%;
+}
+
+.img-opacity {
+    opacity: .5;
+}
+
+
+/* ICONS Font Awesome
+--------------------------------- */
+
+.icons-social-head .social {
+    padding : 0;
+}
+
+.icons-social-head .social li {
+    display: inline-block;
+    margin-left: .3em;
+}
+
+.icons-social-head .social li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #343A40;
+  display: block;
+  padding: .5em .6em;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+ }
+
+.icons-social-head .social li a:hover {
+    border-radius: 50%;
+}
+
+.icons-social-head .social li a.fa {
+    font-size: 1.4em;
+}
+
+/* btns
+--------------------------------------------*/
+
+.btn-group {
+    margin-top: 1em;
+}
+
+/* pagination
+--------------------------------------------*/
+
+.page-navigation {
+    margin-top: 2em;
+}
+
+.data-paginator {
+    text-align: center;
+}

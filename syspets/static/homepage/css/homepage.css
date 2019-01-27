@@ -1,0 +1,67 @@
+/* Styles Index.html */
+
+
+
+.album {
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.card {
+    margin-bottom: 1.5em;
+}
+
+.card-date {
+    font-size: .8em;
+}
+
+/* Messages
+--------------------------------- */
+
+.success, .info {
+    list-style-type: none;
+}
+
+
+/* ICONS Font Awesome
+--------------------------------- */
+
+.icons-social-head .social {
+    padding : 0;
+}
+
+.icons-social-head .social li {
+    display: inline-block;
+    margin-left: .3em;
+}
+
+.icons-social-head .social li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #343A40;
+  display: block;
+  padding: .5em .6em;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+ }
+
+.icons-social-head .social li a:hover {
+    border-radius: 50%;
+}
+
+.icons-social-head .social li a.fa {
+    font-size: 1.4em;
+}
+
+/* image-default
+----------------------------------------*/
+
+.img-default {
+    width: 50%;
+    margin: auto;
+}
+
+.img-opacity {
+    opacity: .5;
+}

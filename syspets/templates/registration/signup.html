@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Pets - Registre User {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'registration/css/signup.css' %}">{% endblock %}
+{% block content %}
+
+<main role="main">
+    <div class="container">
+        <div class="container-form">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="row form-header">
+                        <div class="header-title col-8 col-md-12 align-self-center">
+                            <h2 class="font-weight-normal">Please signup</h2>
+                        </div>
+
+                        <div class="header-image col-4">
+                            <img class="img-opacity" src="{% static 'registration/images/user_icon.png' %}" alt="user_icon">
+                        </div>
+                    </div>
+
+                    <div class="form-boby">
+                        <form class="" method="POST">{% csrf_token %}
+                           <div class="form-group">
+                             <label for="{{form.username.id_for_label}}">{{form.username.label}}*</label>
+                             {{form.username}}
+                             <div class="invalid-feedback">
+                                <strong>{{ form.username.errors }}</strong>
+                             </div>
+                           </div>
+
+                           <div class="form-group">
+                             <label for="{{form.password1.id_for_label}}">{{form.password1.label}}*</label>
+                             {{form.password1}}
+                           </div>
+
+                           <div class="form-group">
+                             <label for="{{form.password2.id_for_label}}">{{form.password2.label}}*</label>
+                             {{form.password2}}
+                             {% if form.errors %}
+                                <div class="invalid-feedback">
+                                    <strong>{{ form.password2.errors }}</strong>
+                                </div>
+                             {% endif %}
+                           </div>
+
+                            <div class="form-group">
+                             <label for="{{form.first_name.id_for_label}}">{{form.first_name.label}}*</label>
+                             {{form.first_name}}
+                           </div>
+
+                            <div class="form-group">
+                             <label for="{{form.last_name.id_for_label}}">{{form.last_name.label}}</label>
+                             {{form.last_name}}
+                           </div>
+
+                            <div class="form-group">
+                             <label for="{{form.email.id_for_label}}">{{form.email.label}}*</label>
+                             {{form.email}}
+                             {% if form.errors %}
+                                <div class="invalid-feedback">
+                                    <strong>{{ form.email.errors }}</strong>
+                                </div>
+                             {% endif %}
+                           </div>
+
+                             <div class="btn-group">
+                                <input class="btn btn-info" type="submit" value="Save">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="container-image col-md-6 align-self-center">
+                    <img class="img-default img-opacity" src="{% static 'registration/images/user_icon.png' %}" alt="user_icon">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

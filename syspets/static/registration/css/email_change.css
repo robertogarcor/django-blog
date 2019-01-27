@@ -1,0 +1,67 @@
+/* Styles email_change_form.html */
+
+
+.container {
+    margin-top: 6em;
+}
+
+.header-title {
+    margin-bottom: 1em;
+}
+
+.btn-group {
+    margin-top: 1em;
+}
+
+/* Images
+-------------------------------------------*/
+
+.header-image {
+    text-align: right;
+}
+
+.header-image img {
+    /*padding: .5em;*/
+    width: 80%;
+}
+
+.container-image {
+    display: none;
+    text-align: center;
+}
+
+.container-image img {
+    padding: 3em;
+    width: 100%;
+}
+
+.img-opacity {
+    opacity: .5;
+}
+
+
+/* footer
+---------------------------------------------*/
+
+footer .back-top {
+    visibility: hidden;
+}
+
+
+/* Media Query > 786 px
+---------------------------------------------*/
+
+@media only screen and (min-width: 768px) {
+
+    .container .header-image img {
+        display: none;
+    }
+
+    .container-image {
+        display: block;
+    }
+
+
+}
+
+

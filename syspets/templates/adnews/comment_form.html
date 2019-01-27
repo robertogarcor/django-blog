@@ -1,0 +1,47 @@
+{% extends 'base/base_auth.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Pets - Comment Adnew  {% endblock %}
+{% load static from staticfiles %}
+{% block styles %}<link rel="stylesheet" href="{% static 'adnews/css/comment_form.css' %}">{% endblock %}
+{% block content %}
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="row form-header">
+                    <div class="header-title col-8 col-md-12 align-self-center">
+                        {% if not comment.id %}
+                            <h2 class="font-weight-normal">New Comment</h2>
+                        {% else %}
+                            <h2 class="font-weight-normal">Edit Comment</h2>
+                        {% endif %}
+                    </div>
+
+                    <div class="header-image col-4">
+                        <img class="img-title-default img-opacity" src="{% static 'adnews/images/comment_icon.png' %}" alt="comment_icon">
+                    </div>
+                </div>
+
+                <div class="form-boby">
+                    <form class="" method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="btn-group save">
+                            <input class="btn btn-info" type="submit" value="Save">
+                            <!--<a class="btn btn-secondary" href="{% url 'users:user_detail' user.username %}">Cancel</a>-->
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="container-image col-md-6 align-self-center">
+                <img class="img-opacity" src="{% static 'adnews/images/comment_icon.png' %}" alt="comment_icon">
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

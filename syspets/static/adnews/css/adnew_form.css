@@ -1,0 +1,70 @@
+/* Styles adnew_form.html */
+
+.container {
+    margin-top: 6em;
+}
+
+.header-title {
+    margin-bottom: 1em;
+}
+
+.btn-group {
+    margin-top: 1em;
+}
+
+.btn-group.delete {
+    float: right;
+}
+
+input[type='file'] {
+    width: 100%;
+
+}
+
+/* Images
+-------------------------------------------*/
+
+.header-image img {
+    /*padding: 1em;*/
+    width: 100%;
+}
+
+.container-image {
+    display: none;
+    text-align: center;
+}
+
+.container-image img {
+    padding: 2em;
+    width: 100%;
+}
+
+.img-opacity {
+    opacity: .5;
+}
+
+
+/* footer
+---------------------------------------------*/
+
+footer .back-top {
+    visibility: hidden;
+}
+
+
+/* Media Query > 786 px
+---------------------------------------------*/
+
+@media only screen and (min-width: 768px) {
+
+    .container .header-image img {
+        display: none;
+    }
+
+    .container-image {
+        display: block;
+    }
+
+}
+
+
