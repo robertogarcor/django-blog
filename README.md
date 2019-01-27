@@ -1,4 +1,4 @@
-BACKEND
+Backend
 
 Setup
 
@@ -8,11 +8,11 @@ Dependencies:
 
 # Create a Python virtual environment, install package dependencies
 
-python virtualenv syspets
+./python virtualenv syspets
 
-source syspets/bin/activate
+./source syspets/bin/activate
 
-pip install -U -r syspets/requeriments/base.txt
+./pip install -U -r syspets/requeriments/base.txt
 
 
 Database PostgreSQL
@@ -27,10 +27,11 @@ GRANT ALL PRIVILEGES ON DATABASE pets TO pets_admin;
 
 # Initialize the database, create an admin user:
 
-./python manage.py createsuperuser 
+./python manage.py createsuperuser
 
 ./python manage.py makemigrations --settings=syspets.settings.locale
 ./python manage.py makemigrations users --settings=syspets.settings.locale
 ./python manage.py makemigrations registration --settings=syspets.settings.locale
 ./python manage.py makemigrations adnews --settings=syspets.settings.locale
 ./python manage.py migrate --settings=syspets.settings.locale
+
