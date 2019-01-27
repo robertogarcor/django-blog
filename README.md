@@ -36,6 +36,6 @@ GRANT ALL PRIVILEGES ON DATABASE pets TO pets_admin;<br/>
 ./python manage.py makemigrations --settings=syspets.settings.locale<br/>
 ./python manage.py makemigrations users --settings=syspets.settings.locale<br/>
 ./python manage.py makemigrations registration --settings=syspets.settings.locale<br/>
-./python manage.py makemigrations adnews --settings=syspets.settings.locale<br/>  
-./python manage.py migrate --settings=syspets.settings.locale<br/>  
+./python manage.py makemigrations adnews --settings=syspets.settings.locale<br/>
+./python manage.py migrate --settings=syspets.settings.locale<br/>
 
