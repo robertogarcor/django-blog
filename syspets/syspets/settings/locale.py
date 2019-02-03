@@ -33,5 +33,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-LOGIN_URL = reverse_lazy('signin')
+LOGIN_URL = reverse_lazy('accounts:signin')
 
