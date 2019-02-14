@@ -4,6 +4,9 @@
 
 Captures
 
-./syspets_images/Captura_00.png
+https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG
+https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_01.PNG
+https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_02.PNG
+https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_03.PNG
 
 
