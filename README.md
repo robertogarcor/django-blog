@@ -4,6 +4,6 @@
 
 Captures
 
-./syspets_images/Captur_00.png
+./syspets_images/Captura_00.png
 
 
