@@ -6,7 +6,9 @@ Captures:
 
 <ul>
 	<li>
-		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG">Captura00</a>
+		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG">
+		<img src="syspets_images/Captura_00.PNG width="200px">
+		</a>
 	</li>
 	<li>
 		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_01.PNG">Captura01</a>
