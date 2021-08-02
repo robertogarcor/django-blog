@@ -4,8 +4,8 @@
 
 Requeriments:
 
-**- Install python.**
-**- Create virtual environment. ~> python -m venv <venv>**
+**Install python.**
+**Create virtual environment. ~> python -m venv <venv>**
 **- Install pip. ~> python -m pip install --upgrade pip**
 **- Install dependencies. ~> pip install <package> -> Show requeriments/base.txt**
 **- Create database postgres ~> DB and account user admin**
