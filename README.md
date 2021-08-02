@@ -5,9 +5,9 @@
 Requeriments:
 
 - Install python.
-- Create virtual environment. ~> python -m venv <venv>
+- Create virtual environment. ~> python -m venv "namevenv"
 - Install pip. ~> python -m pip install --upgrade pip
-- Install dependencies. ~> pip install <package> -> Show requeriments/base.txt
+- Install dependencies. ~> pip install "package" -> Show requeriments/base.txt
 - Create database postgres ~> DB and account user admin
 - Migrate models to database. ~> python manage.py makemigrations users adnews registration
 - Execute migrations ~> python manage.py migrate
