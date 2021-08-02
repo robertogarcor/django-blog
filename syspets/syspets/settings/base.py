@@ -25,9 +25,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 're71vp5bimquu60pcy6&e8_k(#dnxg^h)r%@zfd23id!0=pijs'
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-1us)gmwua@r!90t064j#u5=tj5dq9!-$&hf@i)h+a!b^bt!_00'
-
 # apps django
 DJANGO_APPS = [
     'django.contrib.admin',
