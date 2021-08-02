@@ -21,6 +21,8 @@ from .views import AdnewListView
 from .views import AdnewCreateView, AdnewDetailView, AdnewUptadeView, AdnewDeleteView
 from .views import CommentCreateView, CommentDeleteView, CommentUpdateView
 
+app_name = 'adnews'
+
 urlpatterns = [
     url(r'^$', AdnewListView.as_view(), name='adnew_list'),
     url(r'^adnew/add/$', AdnewCreateView.as_view(), name='adnew_add'),

@@ -6,3 +6,5 @@ from django.apps import AppConfig
 
 class AdnewsConfig(AppConfig):
     name = 'adnew'
+    default = False
+    

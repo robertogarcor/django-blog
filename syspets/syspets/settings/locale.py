@@ -1,6 +1,6 @@
 from .base import *
 
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

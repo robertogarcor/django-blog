@@ -19,6 +19,8 @@ from django.conf.urls import url, include
 
 from .views import UserDetailView, UserUpdateView, UserDeleteView
 
+app_name = 'users'
+
 urlpatterns = [
 
     url(r'^user/(?P<slug>[-\w]+)/$', UserDetailView.as_view(), name='user_detail'),
