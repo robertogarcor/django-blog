@@ -38,6 +38,8 @@ DJANGO_APPS = [
 # apps three
 THIRD_PARTY_APPS = [
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 # apps locale
@@ -61,6 +63,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    #'DEFAULT_PERMISSION_CLASSES': [
+    #    'rest_framework.permissions.IsAuthenticated',
+    #],
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #    'rest_framework.authentication.TokenAuthentication',
+    #    'rest_framework.authentication.BasicAuthentication', """
+    #]
+}
 
 
 TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')

@@ -22,6 +22,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework.authtoken import views
+
 from .views import IndexView
 
 urlpatterns = [
@@ -31,8 +33,11 @@ urlpatterns = [
     url(r'^adnews/', include('apps.adnews.urls', namespace='adnews')),
     url(r'^users/', include('apps.users.urls', namespace='users')),
 
-]
+    url(r'^api/1.0/accounts/', include('apps.registration.api.urls', namespace='api-accounts')),
+    url(r'^api/1.0/users/', include('apps.users.api.urls', namespace='api-users')),
+    url(r'^api/1.0/adnews/', include('apps.adnews.api.urls', namespace='api-adnews')),
 
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)

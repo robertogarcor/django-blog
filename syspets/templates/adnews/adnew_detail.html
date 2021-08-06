@@ -31,7 +31,7 @@
                         <label class="card-surname"><strong>Title:</strong></label>
                         <h5 class="card-username">{{ adnew.title }}</h5>
                         <label class="card-surname"><strong>Description:</strong></label>
-                        <p class="card-text text-justify">{{ adnew.description }}></p>
+                        <p class="card-text text-justify">{{ adnew.description }}</p>
                         <p class="card-date text-muted">{{ adnew.created|date }}</p>
                           {% if user.is_authenticated %}
                              {% ifequal object.user.username user.username %}
