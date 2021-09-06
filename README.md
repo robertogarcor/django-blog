@@ -19,12 +19,12 @@ Captures:
 
 <table>
   <tr>
-    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG" width="400" height="400"></td>
-    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_01.PNG" width="400" height="400"></td>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG"></td>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_01.PNG"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_02.PNG" width="400" height="400"></td>
-    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_03.PNG" width="400" height="400"></td>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_02.PNG"></td>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_03.PNG"></td>
   </tr>
 </table>
 
