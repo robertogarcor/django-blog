@@ -17,20 +17,16 @@ Requeriments:
 
 Captures:
 
-<ul>
-	<li>
-		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG">Captura00</a>
-	</li>
-	<li>
-		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_01.PNG">Captura01</a>
-	</li>
-	<li>
-		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_02.PNG">Captura02</a>
-	</li>
-	<li>
-		<a href="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_03.PNG">Captura03</a>
-	</li>
-</ul>
+<table>
+  <tr>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_00.PNG"></td>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_01.PNG"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_02.PNG"></td>
+    <td><img src="https://github.com/robertogarcor/django-blog/blob/master/syspets_images/Captura_03.PNG"></td>
+  </tr>
+</table>
 
 ## License
 
